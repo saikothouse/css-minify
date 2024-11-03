@@ -1,27 +1,68 @@
-.section {
-  margin-bottom: 20px;
-}
-
-.section h2 {
-  margin-top: 0;
-}
-
-.section ul {
-  list-style: none;
-  padding: 0;
+/* General Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.section li {
-  margin-bottom: 10px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
 }
 
-.section li:before {
-  content: '✔️';
-  margin-right: 10px;
-  color: #007bff;
+/* Container for the whole app */
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.section h3 {
-  margin-top: 20px;
+/* Header Styles */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* TextArea Styling */
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Code Highlighting Styles (optional) */
+pre {
+  background: #282c34;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
