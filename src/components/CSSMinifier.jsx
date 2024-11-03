@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import CleanCSS from 'clean-css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css'; // Import Prism CSS
 
 const MinifierContainer = styled.section`
   padding: 20px;
@@ -21,7 +23,11 @@ const TextArea = styled.textarea`
   resize: none;
 `;
 
-const MinifiedOutput = styled(TextArea)`
+const MinifiedOutput = styled.pre`
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
   margin-top: 10px;
 `;
 
@@ -65,6 +71,13 @@ const CSSMinifier = () => {
     }, 2000);
   };
 
+  // Use useEffect to highlight the code whenever minifiedCss changes
+  React.useEffect(() => {
+    if (minifiedCss) {
+      Prism.highlightAll();
+    }
+  }, [minifiedCss]);
+
   return (
     <MinifierContainer>
       <h2>CSS Minifier</h2>
@@ -77,7 +90,9 @@ const CSSMinifier = () => {
         {loading ? 'Minifying...' : 'Minify CSS'}
       </Button>
       <h3>Minified CSS:</h3>
-      <MinifiedOutput value={minifiedCss} readOnly />
+      <MinifiedOutput>
+        <code className="language-css">{minifiedCss}</code>
+      </MinifiedOutput>
       <CopyToClipboard text={minifiedCss} onCopy={handleCopy}>
         <Button disabled={!minifiedCss}>Copy to Clipboard</Button>
       </CopyToClipboard>
