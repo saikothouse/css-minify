@@ -5,13 +5,18 @@ import CleanCSS from 'clean-css';
 import styled from 'styled-components';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
+import About from './About';
+import Features from './Features';
+import FAQ from './FAQ';
 
 const Container = styled.div`
   padding: 20px;
   max-width: 800px;
   margin: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da;
   border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 `;
 
 const TextArea = styled.textarea`
@@ -19,10 +24,17 @@ const TextArea = styled.textarea`
   height: 150px;
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   font-family: monospace;
-`;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+ `;
 
 const Button = styled.button`
   padding: 10px 15px;
@@ -31,6 +43,8 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: #0056b3;
@@ -42,14 +56,17 @@ const CssMinifier = () => {
   const [minifiedCss, setMinifiedCss] = useState('');
 
   const handleMinify = () => {
-    const output = new CleanCSS().minify(cssInput);
-    setMinifiedCss(output.styles);
-    Prism.highlightAll();
+    const cleanCSS = new CleanCSS();
+    const minified = cleanCSS.minify(cssInput).styles;
+    setMinifiedCss(minified);
   };
 
   return (
     <Container>
       <h1>CSS Minifier</h1>
+      <About />
+      <Features />
+      <FAQ />
       <TextArea
         placeholder="Paste your CSS here..."
         value={cssInput}
