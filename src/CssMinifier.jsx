@@ -34,7 +34,7 @@ const TextArea = styled.textarea`
     border-color: #007bff;
     outline: none;
   }
- `;
+`;
 
 const Button = styled.button`
   padding: 10px 15px;
@@ -58,15 +58,12 @@ const CssMinifier = () => {
   const handleMinify = () => {
     const cleanCSS = new CleanCSS();
     const minified = cleanCSS.minify(cssInput).styles;
-    setMinifiedCss(minified);
+    setMinified Css(minified);
   };
 
   return (
     <Container>
       <h1>CSS Minifier</h1>
-      <About />
-      <Features />
-      <FAQ />
       <TextArea
         placeholder="Paste your CSS here..."
         value={cssInput}
@@ -82,6 +79,9 @@ const CssMinifier = () => {
       <pre>
         <code className="language-css">{minifiedCss}</code>
       </pre>
+      <About />
+      <Features />
+      <FAQ />
     </Container>
   );
 };
