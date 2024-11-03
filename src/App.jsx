@@ -33,6 +33,7 @@ const App = () => {
       <Header>
         <h1>CSS Minifier Tool</h1>
       </Header>
+      <CssMinifier />
       <Section>
         <h2><FaInfoCircle /> About</h2>
         <p>This tool allows you to minify your CSS code easily. Just paste your CSS in the input area and click the button to get the minified version.</p>
@@ -50,7 +51,6 @@ const App = () => {
         <p><strong>Q:</strong> What is CSS minification?</p>
         <p><strong>A:</strong> It is the process of removing all unnecessary characters from the CSS code to reduce its size.</p>
       </Section>
-      <CssMinifier />
       <Footer>
         <p>&copy; 2023 CSS Minifier Tool</p>
       </Footer>
